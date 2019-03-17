@@ -36,11 +36,13 @@ const determineConverter = (e) => {
 
 
     if (document.getElementById('tempC').checked === true) {
+    //document.getElementById('tempOutput').innerHTML = "";
     unit = 'C'
     toCelsius(temp);
     domStringBuilder(finalTemp, unit);
     }
     else if (document.getElementById('tempF').checked === true) {
+        //document.getElementById('tempOutput').innerHTML = "";
         unit = 'F'
         toFahrenheit(temp);
         domStringBuilder(finalTemp, unit);
@@ -57,8 +59,26 @@ button.addEventListener("click", determineConverter);
 
 domString = "";
 const domStringBuilder = (temperature, unitOfTemp) => {
-    domString += `${finalTemp} degrees ${unit}`;
+    if (finalTemp > 32 && unit === 'C'){
+    domString = `<div class='textRed'>${finalTemp.toFixed(2)} degrees ${unit}</div>`;
     printToDom('tempOutput', domString);
+    }
+    else if (finalTemp > 90 && unit === 'F'){
+    domString = `<div class='textRed'>${finalTemp.toFixed(2)} degrees ${unit}</div>`;
+    printToDom('tempOutput', domString);
+    }
+    else if (finalTemp < 0 && unit === 'C'){
+        domString = `<div class='textBlue'>${finalTemp.toFixed(2)} degrees ${unit}</div>`;
+        printToDom('tempOutput', domString);
+        }
+        else if (finalTemp < 32 && unit === 'F'){
+        domString = `<div class='textBlue'>${finalTemp.toFixed(2)} degrees ${unit}</div>`;
+        printToDom('tempOutput', domString);
+        }
+    else {
+        domString = `<div class='textGreen'>${finalTemp.toFixed(2)} degrees ${unit}</div>`;
+        printToDom('tempOutput', domString);
+    }
 };
 
 const clear = () => {
@@ -68,6 +88,7 @@ const clear = () => {
 };
 
 clearBtn.addEventListener('click', clear);
+
 
 
 
