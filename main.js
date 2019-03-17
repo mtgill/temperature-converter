@@ -1,11 +1,9 @@
-
+// temp convert functions 
 let finalTemp = 0;
 const toCelsius =  (temp) => {
     const tempC = (temp - 32) * (5/9);
     finalTemp = tempC;
  };
-
-
 
 const toFahrenheit = (temp) => {
     const tempF = temp * (9/5) + 32;
@@ -18,10 +16,19 @@ const printToDom = (divId, textToPrint) => {
     const selectedDiv = document.getElementById(divId);
     selectedDiv.innerHTML = textToPrint;
 }
+// submits input when enter key is pressed 
+const enterSubmit = (e) => {
+    if (e.keyCode === 13){
+        determineConverter();
+
+    }
+};
 
 // Get a reference to the button element in the DOM
 const button = document.getElementById("convertBtn");
 const clearBtn = document.getElementById('clearBtn');
+const enterInput = document.getElementById('tempInput');
+
 
 
 // This function should determine which conversion should
@@ -36,23 +43,21 @@ const determineConverter = (e) => {
 
 
     if (document.getElementById('tempC').checked === true) {
-    //document.getElementById('tempOutput').innerHTML = "";
     unit = 'C'
     toCelsius(temp);
     domStringBuilder(finalTemp, unit);
     }
     else if (document.getElementById('tempF').checked === true) {
-        //document.getElementById('tempOutput').innerHTML = "";
         unit = 'F'
         toFahrenheit(temp);
         domStringBuilder(finalTemp, unit);
     }
 
-    //tempValue = document.getElementById('tempInput').value;
-    //printToDom('tempOutput', tempValue);
+   
 };
 
 // Assign a function to be executed when the button is clicked
+
 
 
 button.addEventListener("click", determineConverter);
@@ -86,10 +91,9 @@ const clear = () => {
     document.getElementById('tempOutput').innerHTML = "";
 
 };
+enterInput.addEventListener('keyup', enterSubmit);
 
 clearBtn.addEventListener('click', clear);
-
-
 
 
 
