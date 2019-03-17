@@ -21,6 +21,7 @@ const printToDom = (divId, textToPrint) => {
 
 // Get a reference to the button element in the DOM
 const button = document.getElementById("convertBtn");
+const clearBtn = document.getElementById('clearBtn');
 
 
 // This function should determine which conversion should
@@ -59,6 +60,14 @@ const domStringBuilder = (temperature, unitOfTemp) => {
     domString += `${finalTemp} degrees ${unit}`;
     printToDom('tempOutput', domString);
 };
+
+const clear = () => {
+    document.getElementById('tempInput').value = "";
+    document.getElementById('tempOutput').innerHTML = "";
+
+};
+
+clearBtn.addEventListener('click', clear);
 
 
 
