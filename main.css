@@ -8,3 +8,15 @@ body {
     height: 22px;
     margin-top: 10px;
 }
+
+.textRed {
+    color: red;
+}
+
+.textBlue {
+    color: blue;
+}
+
+.textGreen {
+    color: green;
+}
