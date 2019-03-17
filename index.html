@@ -8,6 +8,25 @@
     <title>Temperature Converter</title>
 </head>
 <body>
+
+    <div class="tempInputDiv">
+        <input type="text" id="tempInput">
+    </div>
+
+    <div class="tempRadioButtons">
+        <input type="radio" name="tempRadioBtn" value="C" id="tempC" checked>Celsius</br>
+        <input type="radio" name="tempRadioBtn" value="F" id="tempF">Fahrenheit</br>
+    </div>
+
+    <div class="convertButton">
+        <button id="convertBtn">Convert Temperature</button>
+    </div>
+
+    <div class="clearButton">
+            <button id="clearBtn">Clear</button>
+        </div>
+
+        <div id="tempOutput"></div>
     
     <script src="./main.js"></script>
 </body>
