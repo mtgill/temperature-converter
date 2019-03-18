@@ -39,9 +39,6 @@ let unit = "";
 
 const determineConverter = (e) => {
 
-    const temp = document.getElementById('tempInput').value;
-
-
     if (document.getElementById('tempC').checked === true) {
     unit = 'C'
     toCelsius(temp);
