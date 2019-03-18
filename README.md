@@ -12,3 +12,4 @@ This application converts a given temperature from Farenheit to Celcius or Celci
 
 ## Screenshots
 
+https://raw.githubusercontent.com/mtgill/temperature-converter/master/screenshot/tempConvert-screenshot.PNG
